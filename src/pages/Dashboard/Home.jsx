@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
   ModeICon,
   SaveIcon,
@@ -12,62 +12,17 @@ import {
 
 import Avatar from '../../assets/images/BobirAVa.svg'
 import DesignstaImg from '../../assets/images/Designsta.svg'
-import cloutexhibitionImg from '../../assets/images/cloutexhibition.svg'
-import CreativePhotoImg from '../../assets/images/CreativePhoto.svg'
-import KebabImg from '../../assets/images/kebab.svg'
 import Button from '../../components/Button'
 import PostItem from '../../components/PostItem'
 import Trends from '../../components/Trends'
 import Mushtariy from '../../assets/images/Mushtariy.png'
 import Shuxratbek from '../../assets/images/Shuxratbek.png'
-import { json } from 'react-router-dom'
+import { Context } from '../../Context/Context'
 function Home() {
+  const {postList, setPostList} = useContext(Context)
   const token = JSON.parse(localStorage.getItem('token'))
   const [postValue, setPostValue] = useState('')
   const [postImage, setPostImage] = useState('')
-  const [postList, setPostList] = useState(JSON.parse(window.localStorage.getItem("postsList")) || [
-    {
-      id: 1,
-      name: token?.login,
-      imgUrl: Avatar,
-      email: '@inner · 25m',
-      description:
-        "Twitterdagi ayol-erkak qarama-qarshiliginglardan o'zinglar zerikmadinglarmi?",
-      commentCount: null,
-      replyCount: null,
-      likeCount: null,
-      uploadCount: null,
-      statisticCount: null,
-      postImage: null,
-    },
-    {
-      id: 2,
-      name: 'cloutexhibition',
-      imgUrl: cloutexhibitionImg,
-      email: '@RajLahoti · 22m',
-      description:
-        'YPIP dasturining bu yilgi sezoni ham o’z nihoyasiga yetmoqda. Mentorlik davomida talaba va yangi bitiruvchilarni o’sayotganini ko’rib hursand bo’ladi odam.',
-      commentCount: null,
-      replyCount: '5',
-      likeCount: '9',
-      uploadCount: null,
-      statisticCount: null,
-      postImage: null,
-    },
-    {
-      id: 3,
-      name: 'CreativePhoto',
-      imgUrl: CreativePhotoImg,
-      email: '@cloutexhibition · 1h',
-      description: 'Обетда .... Кечиринглар',
-      commentCount: '10',
-      replyCount: '1',
-      likeCount: '8',
-      uploadCount: null,
-      statisticCount: null,
-      postImage: KebabImg,
-    },
-  ])
 
   window.localStorage.setItem("postsList", JSON.stringify(postList))
 
@@ -116,7 +71,7 @@ function Home() {
               value={postValue}
               name="postValue"
             />
-            <img src={postImage} alt="" />
+            <img src={postImage} alt="postimage" />
 
             <div className="flex space-x-[22px]">
               <label>

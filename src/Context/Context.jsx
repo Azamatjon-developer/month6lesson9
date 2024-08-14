@@ -1,4 +1,10 @@
 import { createContext, useState } from 'react'
+import Avatar from '../assets/images/BobirAVa.svg'
+import DesignstaImg from '../assets/images/Designsta.svg'
+import cloutexhibitionImg from '../assets/images/cloutexhibition.svg'
+import CreativePhotoImg from '../assets/images/CreativePhoto.svg'
+import KebabImg from '../assets/images/kebab.svg'
+
 
 const Context = createContext()
 
