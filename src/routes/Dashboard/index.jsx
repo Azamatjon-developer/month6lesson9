@@ -8,6 +8,7 @@ import Bookmarks from '../../pages/Dashboard/Bookmarks'
 import Lists from '../../pages/Dashboard/Lists'
 import More from '../../pages/Dashboard/More'
 import Loading from "../../assets/images/loading.jpg"
+import { SearchIcon } from '../../assets/images/icons'
 const Home = lazy(
   () =>
     new Promise((resolve) => {
@@ -28,7 +29,7 @@ const Profile = lazy(
 )
 function DashboardPage() {
   return (
-    <div className="container mx-auto flex">
+    <div className="flex">
       <Navbar />
       <Routes>
         <Route
@@ -53,6 +54,7 @@ function DashboardPage() {
         <Route path="/lists" element={<Lists />} />
         <Route path="/more" element={<More />} />
       </Routes>
+      
     </div>
   )
 }
